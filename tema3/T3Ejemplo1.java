@@ -9,6 +9,7 @@ public class T3Ejemplo1 {
         System.out.print("Dime tu edad: ");
         String edadString = System.console().readLine();
         int edad = Integer.parseInt(edadString);
+        System.out.println(edad);
 
         System.out.println("Hola " + nombre + ", ¡encantado de conocerte!");
     }
