@@ -56,7 +56,7 @@ public class T6Ejemplo1 {
         System.out.println("Lanzamiento de dado con clase Random: " + (rand.nextInt(CARAS_DADO_ROL) + 1));
 
         // Intervalo entero [3, 7]
-        System.out.println("Lanzamiento de dado con clase Random: " + (rand.nextInt(5) + 3));
+        System.out.println("Intervalo [3, 7] con clase Random: " + (rand.nextInt(5) + 3));
 
     }
 }
