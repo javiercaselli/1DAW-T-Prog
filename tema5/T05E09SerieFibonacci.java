@@ -20,8 +20,8 @@ public class T05E09SerieFibonacci {
         int numero = 0;
         final int PRIMERO = 0;
         final int SEGUNDO = 1;
-        int ultimo = 0;
-        int penultimo = 1;
+        int ultimo = SEGUNDO;
+        int penultimo = PRIMERO;
         int aux = 0;
 
         try {
