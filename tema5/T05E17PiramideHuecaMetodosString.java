@@ -2,7 +2,7 @@ package tema5;
 
 import java.util.Scanner;
 
-public class T05E16PiramideSolida {
+public class T05E17PiramideHuecaMetodosString {
     public static void main(String[] args) {
         // Declaraciones
         String relleno = "";
@@ -39,15 +39,30 @@ public class T05E16PiramideSolida {
         // Pintar la pirámide
         int base = 2 * altura - 1;
         int espaciosBlanco = base / 2;
+        String  huecos = "";
         String fila = relleno;
         for (int i = 1; i <= altura; i++) {
             for (int blancos = 1; blancos <= espaciosBlanco; blancos++) {
                 System.out.print(" ");
             }
+
             System.out.println(fila);           // Imprime la fila actual
             espaciosBlanco -= 1;                // Resta un espacio en blanco a la izquierda
-            fila = fila + relleno + relleno;    // Añade dos caracteres de relleno.
+            if (i == 1) {                       // Huecos
+                huecos = huecos + " ";
+            } else {
+                huecos = huecos + "  ";
+            }
+
+            // Pinta la fila
+            fila = relleno + huecos + relleno;    // Añade dos caracteres de relleno.
+
+            // "Truco" usando la librería String
+            if (i == altura - 1) {
+                fila = fila.replace(' ', relleno.charAt(0));
+            }
         }
 
     }
+
 }
