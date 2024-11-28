@@ -7,15 +7,14 @@ public class T14Ejemplo2 {
         int lineas;
         int asteriscos;
         int longitud;
-        int cuentaAsteriscos;
-        Scanner s = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("Este programa pinta varias líneas de asteriscos");
 
         try {
             System.out.print("Introduce el número total de asteriscos: ");
-            asteriscos = Integer.parseInt(s.nextLine());
+            asteriscos = Integer.parseInt(sc.nextLine());
             System.out.print("Introduce el número total de líneas: ");
-            lineas = Integer.parseInt(s.nextLine());
+            lineas = Integer.parseInt(sc.nextLine());
             if ((asteriscos % lineas) == 0) {
                 longitud = asteriscos / lineas;
             } else {
@@ -34,5 +33,8 @@ public class T14Ejemplo2 {
         } finally {
             System.out.println("Adios");
         }
+
+        // Cierra el Scanner
+        sc.close();
     }
 }

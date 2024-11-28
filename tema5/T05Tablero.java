@@ -59,5 +59,8 @@ public class T05Tablero {
             System.out.println(bordesHorizontales);
 
         }
+
+        // Cierre del Scanner
+        sc.close();
     }
 }

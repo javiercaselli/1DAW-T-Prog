@@ -57,5 +57,7 @@ public class T04E08EcuacionesCuadraticas {
             System.out.println("La ecuación no tiene solución real");
         }
 
+        // Cierre del Scanner
+        sc.close();
     }
 }
