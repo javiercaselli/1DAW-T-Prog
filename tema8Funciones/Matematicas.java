@@ -9,7 +9,7 @@ public class Matematicas {
      * @param numero
      * @return
      */
-    public static void invertirEnteroConCerosIzquirda (int numero) {
+    public static void invertirEnteroConCerosIzquirda(int numero) {
         // Declaraciones
         int numeroInvertido = 0;
         int longitud = 0;
@@ -46,7 +46,7 @@ public class Matematicas {
      * @param numero
      * @return
      */
-    public static int invertirEntero (int numero) {
+    public static int invertirEntero(int numero) {
         // Declaraciones
         int numeroInvertido = 0;
 
@@ -66,38 +66,59 @@ public class Matematicas {
     }
 
     /**
-     * Función que devuelve si el número entero que se le pasa como parámetro es capicúa.
+     * Función que devuelve si el número entero que se le pasa como parámetro es
+     * capicúa.
      * 
      * @param numero
      * @return
      */
-    public static boolean esCapicua (int numero) {
-        return (numero == invertirEntero(numero)); 
+    public static boolean esCapicua(int numero) {
+        return (numero == invertirEntero(numero));
     }
 
     /**
-     * Función que comprueba si el número entero que se le pasa como parámetro es primo
+     * Función que comprueba si el número entero que se le pasa como parámetro es
+     * primo
+     * 
      * @param numero
      * @return
      */
-    public static boolean esPrimo (int numero) {
+    public static boolean esPrimo(int numero) {
+        // Declaraciones
+        boolean esPrimo = true;
+        int i = 2;
 
+        // Valor absoluto
+        while (esPrimo && i <= (numero / 2)) {
+            esPrimo = (numero % i != 0);
+            i++;
+        }
 
-        return false;
+        return esPrimo;
     }
 
+    /**
+     * Devuelve el siguiente número primo al que se le pasa como parámetro.
+     * 
+     * @param numero
+     * @return
+     */
+    public static int siguientePrimo(int numero) {
+        // Declaraciones
+        int siguientePrimo = numero + 1;
 
+        while (!esPrimo(siguientePrimo)) {
+            siguientePrimo++;
+        }
 
-
-
-
-
-
+        return siguientePrimo;
+    }
 
     /**********************************************************************************************************/
 
     /**
      * Programa principal para probar la librería
+     * 
      * @param args
      */
     public static void main(String[] args) {
@@ -105,6 +126,8 @@ public class Matematicas {
         int opcion = 0;
         while (opcion != 15) {
             System.out.println("1. Capicúa");
+            System.out.println("2. Primos");
+            System.out.println("3. Siguiente primo");
             System.out.println("15. Salir");
             System.out.print("Introduzca opción: ");
             opcion = sc.nextInt();
@@ -116,19 +139,34 @@ public class Matematicas {
                     if (esCapicua(numero)) {
                         System.out.println("El numero " + numero + " es capicúa");
                     } else {
-                        System.out.println("El numero " + numero +  " NO es capicúa");
+                        System.out.println("El numero " + numero + " NO es capicúa");
                     }
                     break;
-            
+
+                case 2:
+                    System.out.print("Introduzca número: ");
+                    numero = sc.nextInt();
+                    if (esPrimo(numero)) {
+                        System.out.println("El numero " + numero + " es primo");
+                    } else {
+                        System.out.println("El numero " + numero + " NO es primo");
+                    }
+                    break;
+
+                case 3:
+                    System.out.print("Introduzca número: ");
+                    numero = sc.nextInt();
+                    System.out.printf("El siguiente número primo a %d es %d\n", numero, siguientePrimo(numero));
+                    break;
+
                 default:
                     break;
             }
-            System.err.println("");
+            System.out.println("");
 
         }
 
         sc.close();
     }
-
 
 }
