@@ -1,19 +1,29 @@
-package tema8Funciones;
+package tema8Funciones.libreriaEj01;
 
 import java.util.Scanner;
 
 public class Matematicas {
+
     /**
      * Método que devuelve el inverso del número que se le pasa como parámetro
      * 
      * @param numero
      * @return
      */
-    public static void invertirEnteroConCerosIzquirda(int numero) {
+    public static void voltea(int numero) {
         // Declaraciones
         int numeroInvertido = 0;
         int longitud = 0;
 
+        /*
+         * Vamos calculando el resto de dividir por diez para obtener el último dígito a
+         * la derecha
+         * y vamos formando el número invertido añadiéndolos por la izquierda
+         * 
+         * Se va multiplicando por 10 en cada paso parar "correr" los números a la
+         * izquierda conforme
+         * añadimos nuevos.
+         */
         while (numero != 0) {
             // Obtener el último dígito del número
             int digito = numero % 10;
@@ -27,12 +37,20 @@ public class Matematicas {
             longitud++;
         }
 
+        /*
+         * Si el número original tenía ceros al final, en el número invertido se
+         * convierten
+         * en ceros a la izquierda que desparecen, hay que agregarlos, para ello nos
+         * valemos
+         * de la longitud del número original.
+         */
         int ceros = 0;
         while (numeroInvertido / (int) Math.pow(10, longitud - 1) == 0) {
             longitud--;
             ceros++;
         }
 
+        /* Añado los ceros que faltan a la izquierda */
         while (ceros > 0) {
             System.out.print("0");
             ceros--;
@@ -114,59 +132,73 @@ public class Matematicas {
         return siguientePrimo;
     }
 
-    /**********************************************************************************************************/
-
     /**
-     * Programa principal para probar la librería
+     * Función que calcula potencias usando bucles.
      * 
-     * @param args
+     * @param base
+     * @param exponente
+     * @return
      */
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int opcion = 0;
-        while (opcion != 15) {
-            System.out.println("1. Capicúa");
-            System.out.println("2. Primos");
-            System.out.println("3. Siguiente primo");
-            System.out.println("15. Salir");
-            System.out.print("Introduzca opción: ");
-            opcion = sc.nextInt();
+    public static int potencia(int base, int exponente) {
+        // Declaraciones
+        int potencia = 1;
 
-            switch (opcion) {
-                case 1:
-                    System.out.print("Introduzca número: ");
-                    int numero = sc.nextInt();
-                    if (esCapicua(numero)) {
-                        System.out.println("El numero " + numero + " es capicúa");
-                    } else {
-                        System.out.println("El numero " + numero + " NO es capicúa");
-                    }
-                    break;
-
-                case 2:
-                    System.out.print("Introduzca número: ");
-                    numero = sc.nextInt();
-                    if (esPrimo(numero)) {
-                        System.out.println("El numero " + numero + " es primo");
-                    } else {
-                        System.out.println("El numero " + numero + " NO es primo");
-                    }
-                    break;
-
-                case 3:
-                    System.out.print("Introduzca número: ");
-                    numero = sc.nextInt();
-                    System.out.printf("El siguiente número primo a %d es %d\n", numero, siguientePrimo(numero));
-                    break;
-
-                default:
-                    break;
-            }
-            System.out.println("");
-
+        for (int i = 0; i < exponente; i++) {
+            potencia *= base;
         }
 
-        sc.close();
+        return potencia;
     }
 
+    /**
+     * Función que cuenta el número de dígitos que tiene un número
+     * 
+     * @param numero
+     * @return
+     */
+    public static int cuentaDigitos(int numero) {
+        int resultado = 0;
+
+        /*
+         * Va dividiendo entre 10 hasta que se queda sin número, o sea
+         * que tanto la división como el resto sean 0
+         */
+        do {
+            numero /= 10;
+            resultado++;
+        } while ((numero / 10) != 0 || (numero % 10) != 0);
+
+        return resultado;
+    }
+
+    /**
+     * Función de devuelve el dígito que se encuentra en una determinada posición en
+     * un número
+     * 
+     * @param numero
+     * @param posicion
+     * @return la posición empezando a contar desde 0, o -1 si la posición dada no
+     *         existe
+     */
+    public static int digitoN(int numero, int posicion) {
+        // Declaraciones
+        int digito = -1;
+
+        int longitud = cuentaDigitos(numero);
+        numero = invertirEntero(numero);
+
+        if (posicion < longitud) {
+            for (int i = 0; i < posicion; i++) {
+                digito = numero % 10;
+                numero = numero / 10;
+            }
+        }
+
+        return digito;
+    }
+
+    
+    public static int posicionDeDigito(int numero, int digito) {
+
+    }
 }
