@@ -199,6 +199,6 @@ public class Matematicas {
 
     
     public static int posicionDeDigito(int numero, int digito) {
-
+        return 0;
     }
 }

@@ -2,7 +2,7 @@ package tema8Funciones;
 
 import java.util.Scanner;
 
-import tema8Funciones.libreriaEj01.Matematicas;
+import tema8Funciones.libreriaEj01.*;
 
 public class MainEj01 {
     /**
