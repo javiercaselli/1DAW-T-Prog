@@ -1,0 +1,21 @@
+package tema03;
+
+import java.util.Scanner;
+
+public class T3Ejemplo3 {
+    public static void main(String[] args) {
+        String linea = "";
+        String adios = "Adios";
+        Scanner entrada = new Scanner(System.in);
+        while (!adios.equals(linea)) {
+            // introducimos la cadena
+            System.out.println("Introduzca una cadena de caracteres: ");
+            linea = entrada.nextLine();
+        }
+
+        // Imprime la línea por pantalla
+        System.out.println("La cadena introducida es " + linea);
+
+        entrada.close();
+    }
+}
