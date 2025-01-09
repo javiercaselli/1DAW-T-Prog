@@ -1,3 +1,5 @@
+package tema07Arrays;
+
 import java.util.Random;
 
 public class PruebaRellenoRandom {

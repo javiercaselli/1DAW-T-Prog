@@ -25,12 +25,25 @@ public class T07E24TablaSuma {
             for (int col = 0; col < tabla[0].length; col++) {
                 System.out.printf("%10d", tabla[fila][col]);
                 sumaFila += tabla[fila][col];
-                sumaColumnas[col] += sumaColumnas[col];
+                sumaColumnas[col] += tabla[fila][col];
                 if (col == tabla[0].length -1) {
                     System.out.printf("   |%10d\n", sumaFila);
                 }
             }
         }
 
+        // Fila de resultado de sumas columnas
+        for (int col = 0; col < tabla[0].length; col++) {
+            System.out.print("--------------");
+        }
+        System.out.println();
+        int sumaTotal = 0;
+        for (int col = 0; col < tabla[0].length; col++) {
+            System.out.printf("%10d", sumaColumnas[col]);
+            sumaTotal += sumaColumnas[col];
+        }
+        System.out.printf("   |%10d\n", sumaTotal);
+
+        sc.close();
     }
 }
