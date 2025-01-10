@@ -1,19 +1,19 @@
 package tema07Arrays;
 
+import java.util.Random;
 import java.util.Scanner;
 
-public class T07E24TablaSuma {
+public class T07E25TablaSumaAleatorio {
     public static void main(String[] args) {
         // Declaraciones
         int[][] tabla = new int[4][5];
-        Scanner sc = new Scanner(System.in);
+        Random rand = new Random();
 
         // Introducir números
-        System.out.println("Por favor, introduzca los números (enteros) en el array");
+        System.out.println("Relleno aleatorio de la tabla");
         for (int fila = 0; fila < tabla.length; fila++) {
             for (int col = 0; col < tabla[0].length; col++) {
-                System.out.print("Fila " + fila + ", columna " + col + ": ");
-                tabla[fila][col] = sc.nextInt();
+                tabla[fila][col] = rand.nextInt(100, 1000);
             }
         }
 
@@ -31,6 +31,6 @@ public class T07E24TablaSuma {
                 }
             }
         }
-        sc.close();
+
     }
 }
