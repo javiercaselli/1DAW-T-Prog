@@ -31,10 +31,15 @@ public class T07E32TresEnRaya {
                 } while (!posicionValida(tablero, fila, columna));
                 tablero[fila][columna] = 1;
                 turno = 1; // Devuelve el turno al jugador
+                victoria = compruebaVictoria(tablero, fila, columna); // Comprueba si ha ganado
+                if (victoria) {
+                    System.out.println("Lo siento, has perdido contra el ordenador.");
+                }
             } else { // Juega el usuario
                 do {
                     System.out.print("Introduzca coordenada vertical (a-c): ");
                     String sFila = sc.nextLine();
+                    // Traducimos el valor en letra a numérico
                     switch (sFila) {
                         case "a":
                             fila = 0;
@@ -54,6 +59,10 @@ public class T07E32TresEnRaya {
                 } while (!posicionValida(tablero, fila, columna));
                 tablero[fila][columna] = 2;
                 turno = 0; // Devuelve el turno al ordenador
+                victoria = compruebaVictoria(tablero, fila, columna); // Comprueba si ha ganado
+                if (victoria) {
+                    System.out.println("¡Enhorabuena, has ganado!");
+                }
             }
 
             // Incremento el contador de jugadas
@@ -62,13 +71,10 @@ public class T07E32TresEnRaya {
             // Pintar el tablero
             pintaTablero(tablero);
 
-            // Comprueba si alguien ha ganado
-            victoria = compruebaVictoria(tablero, fila, columna);
-
             // comprueba si el talero está lleno
             terminado = (jugadas == (SIZE*SIZE));
-            if (terminado) {
-                System.out.println("El juego ha terminado en tablas");
+            if (!victoria && terminado) {
+                System.out.println("El juego ha terminado en tablas.");
             }
 
         }
@@ -140,25 +146,87 @@ public class T07E32TresEnRaya {
         return (tablero[fila][columna] == 0 && (columna >= 0) && (columna < SIZE));
     }
 
+    /**
+     * Comprueba si la partida ha acabado en victoria para algún oponente.
+     * @param tablero
+     * @param fila
+     * @param col
+     * @return
+     */
     private static boolean compruebaVictoria(int[][] tablero, int fila, int col) {
-        // Declaraciones
-        boolean victoria = false;
-
-        // Comprueba filas
-        for (int fila = 0; fila < SIZE; fila++) {
-            for (int col = 0; col < SIZE; col++) {
-                int primerValor = 0;
-                if (col == 0) {
-                    primerValor = tablero[fila][col];
-                } else {
-                    if (tablero[fila][col] != 
-                }
-            }
-        }
-        
-        return false;
+        int jugador = tablero[fila][col];
+        //Comprueba si ha victoria en las fila, la columna o las diagonales
+        return comprobarFila(tablero, fila, jugador) ||
+                comprobarColumna(tablero, col, jugador) ||
+                comprobarDiagonalPrincipal(tablero, jugador) ||
+                comprobarDiagonalSecundaria(tablero, jugador);
     }
 
+    /**
+     * Comprueba si hay una victoria en la fila.
+     *
+     * @param tablero El tablero de juego.
+     * @param fil     Fila a comprobar.
+     * @param jugador Jugador actual.
+     * @return true si hay 4 en raya en la fila, false en caso contrario.
+     */
+    public static boolean comprobarFila(int[][] tablero, int fil, int jugador) {
+        int count = 0;
+        for (int c = 0; c < SIZE; c++) {
+            count = (tablero[fil][c] == jugador) ? count + 1 : 0;
+        }
+        return (count == SIZE);
+    }
 
+    /**
+     * Comprueba si hay una victoria en la columna.
+     *
+     * @param tablero El tablero de juego.
+     * @param col     Columna a comprobar.
+     * @param jugador Jugador actual.
+     * @return true si hay 4 en raya en la columna, false en caso contrario.
+     */
+    public static boolean comprobarColumna(int[][] tablero, int col, int jugador) {
+        int count = 0;
+        for (int f = 0; f < SIZE; f++) {
+            count = (tablero[f][col] == jugador) ? count + 1 : 0;
+        }
+        return (count == SIZE);
+    }
+
+    /**
+     * Comprueba si hay una victoria en la diagonal principal (\).
+     *
+     * @param tablero El tablero de juego.
+     * @param jugador Jugador actual.
+     * @return true si hay 4 en raya en la diagonal principal, false en caso contrario.
+     */
+    public static boolean comprobarDiagonalPrincipal(int[][] tablero, int jugador) {
+        int count = 0;
+        for (int d = 0; d < SIZE; d++) {
+            if (tablero[d][d] == jugador) {
+                count++;
+            }
+        }
+
+        return (count == SIZE);
+    }
+
+    /**
+     * Comprueba si hay una victoria en la diagonal secundaria (/).
+     *
+     * @param tablero El tablero de juego.
+     * @param jugador Jugador actual.
+     * @return true si hay 4 en raya en la diagonal secundaria, false en caso contrario.
+     */
+    public static boolean comprobarDiagonalSecundaria(int[][] tablero, int jugador) {
+        int count = 0;
+        for (int d = 0; d < SIZE; d++) {
+            if (tablero[d][SIZE - 1 - d] == jugador) {
+                count++;
+            }
+        }
+        return (count == SIZE);
+    }
 
 }
