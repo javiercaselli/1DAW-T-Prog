@@ -84,7 +84,7 @@ public class T07E32TresEnRaya {
     /**
      * Método para inicializar el tablero antes del juego
      * 
-     * @param tablero
+     * @param tablero tablero de juego
      */
     public static void inicializaTablero(int[][] tablero) {
         for (int fila = 0; fila < SIZE; fila++) {
@@ -97,21 +97,20 @@ public class T07E32TresEnRaya {
     /**
      * Pinta por pantalla el tablero
      * 
-     * @param tablero
+     * @param tablero tablero de juego
      */
     public static void pintaTablero(int[][] tablero) {
         for (int fila = 0; fila < SIZE; fila++) {
             for (int col = 0; col < SIZE; col++) {
                 // línea horizontal superior
-                if (col == 0)
+                if (col == 0) {
                     // contenido celda
-                    if (col == 0) {
-                        char[] sFila = { 'a', 'b', 'c' };
-                        System.out.print(sFila[fila] + " |"); // coordenadas verticales
-                    }
+                    char[] sFila = { 'a', 'b', 'c' };
+                    System.out.print(sFila[fila] + " |"); // coordenadas verticales
+                }
                 System.out.print(" " + FICHAS[tablero[fila][col]] + " ");
             }
-            System.out.println("");
+            System.out.println();
         }
 
         // Borde inferior
@@ -128,8 +127,8 @@ public class T07E32TresEnRaya {
         }
 
         // Deja dos líneas en blanco
-        System.out.println("");
-        System.out.println("");
+        System.out.println();
+        System.out.println();
 
 
     }
@@ -137,10 +136,10 @@ public class T07E32TresEnRaya {
     /**
      * Comprueba que la posición del tablero es válida (está libre)
      * 
-     * @param tablero
-     * @param fila
-     * @param columna
-     * @return
+     * @param tablero tablero de juego
+     * @param fila Eje y
+     * @param columna eje x
+     * @return verdadero si la posición es válida
      */
     private static boolean posicionValida(int[][] tablero, int fila, int columna) {
         return (tablero[fila][columna] == 0 && (columna >= 0) && (columna < SIZE));
@@ -148,10 +147,10 @@ public class T07E32TresEnRaya {
 
     /**
      * Comprueba si la partida ha acabado en victoria para algún oponente.
-     * @param tablero
-     * @param fila
-     * @param col
-     * @return
+     * @param tablero tablero de juego
+     * @param fila eje y
+     * @param col eje x
+     * @return verdadero si alguien ha ganado la partida.
      */
     private static boolean compruebaVictoria(int[][] tablero, int fila, int col) {
         int jugador = tablero[fila][col];
