@@ -141,7 +141,7 @@ public class T07E32TresEnRaya {
      * @param columna eje x
      * @return verdadero si la posición es válida
      */
-    private static boolean posicionValida(int[][] tablero, int fila, int columna) {
+    public static boolean posicionValida(int[][] tablero, int fila, int columna) {
         return (tablero[fila][columna] == 0 && (columna >= 0) && (columna < SIZE));
     }
 
@@ -152,7 +152,7 @@ public class T07E32TresEnRaya {
      * @param col eje x
      * @return verdadero si alguien ha ganado la partida.
      */
-    private static boolean compruebaVictoria(int[][] tablero, int fila, int col) {
+    public static boolean compruebaVictoria(int[][] tablero, int fila, int col) {
         int jugador = tablero[fila][col];
         //Comprueba si ha victoria en las fila, la columna o las diagonales
         return comprobarFila(tablero, fila, jugador) ||
