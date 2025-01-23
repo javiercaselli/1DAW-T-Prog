@@ -11,5 +11,7 @@ public class t09e04Main {
         System.out.println("Fracción 2 simplificada: " + fraccion2.simplificar());
         System.out.println("Fracción 1 * fracción 2: " + fraccion1.multiplicar(fraccion2));
         System.out.println("Fracción 1 / fracción 2: " + fraccion1.dividir(fraccion2));
+
+
     }
 }
