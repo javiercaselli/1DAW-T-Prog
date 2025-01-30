@@ -3,7 +3,7 @@ package tema09POO.ej14y15Domino;
 public class MainEj14 {
 
     public static void main(String[] args) throws Exception {
-        FichaDomino f1 = new FichaDomino(7, 1);
+        FichaDomino f1 = new FichaDomino(6, 1);
         FichaDomino f2 = new FichaDomino(0, 4);
         FichaDomino f3 = new FichaDomino(3, 3);
         FichaDomino f4 = new FichaDomino(0, 1);

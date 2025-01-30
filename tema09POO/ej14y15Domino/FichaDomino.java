@@ -5,6 +5,14 @@ public class FichaDomino {
     private int lado1;
     private int lado2;
 
+    public int getLado1() {
+        return lado1;
+    }
+
+    public int getLado2() {
+        return lado2;
+    }
+
     public FichaDomino(int lado1, int lado2) throws Exception {
         if (lado1 >= 0 && lado1 <= 6 && lado2 >= 0 && lado2 <= 6 ) {
             this.lado1 = lado1;
@@ -15,8 +23,10 @@ public class FichaDomino {
     }
 
     public FichaDomino voltea() throws Exception {
-        // Ficha a devolver
-        return new FichaDomino(this.lado2, this.lado1);
+        int aux = this.lado1;
+        this.lado1 = lado2;
+        this.lado2 = aux;
+        return this;
     }
 
     public boolean encaja(FichaDomino f2) {
