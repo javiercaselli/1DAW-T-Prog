@@ -32,9 +32,12 @@ public class Alumno extends Persona {
     @Override
     public String toString() {
         return "Alumno{" +
-                "ciclo='" + ciclo + '\'' +
+                "dni='" + getDni() + '\'' +
+                ", nombre='" + getNombre() + '\'' +
+                ", edad='" + getEdad() + '\'' +
+                ", ciclo='" + ciclo + '\'' +
                 ", curso='" + curso + '\'' +
                 ", unidad='" + unidad + '\'' +
-                '}';
+                "} ";
     }
 }

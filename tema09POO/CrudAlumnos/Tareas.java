@@ -2,28 +2,28 @@ package tema09POO.CrudAlumnos;
 
 public interface Tareas {
     /**
-     * Añade una persona a la agenda.
+     * Añade una alumno a la agenda.
      *
-     * @param persona
+     * @param alumno
      */
-    public void añadir(Persona persona) throws Exception;
+    public void añadir(Alumno alumno) throws Exception;
 
     /**
-     * Devuelve la lista de personas
+     * Devuelve la lista de alumnos
      *
      * @return
      */
-    public Persona[] listar();
+    public Alumno[] listar();
 
     /**
      *
-     * @param persona
+     * @param alumno
      */
-    public void editar(Persona persona) throws Exception;
+    public void editar(Alumno alumno) throws Exception;
 
     /**
      *
-     * @param persona
+     * @param alumno
      */
-    public void borrar(Persona persona) throws Exception;
+    public void borrar(Alumno alumno) throws Exception;
 }

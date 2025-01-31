@@ -5,10 +5,10 @@ public class Agenda implements Tareas {
     // Propiedades de clase
 
     // Propiedades
-    private Persona[] listaAlumnos = new Persona[100];
+    private Alumno[] listaAlumnos = new Alumno[100];
 
     @Override
-    public void añadir(Persona persona) throws Exception {
+    public void añadir(Alumno alumno) throws Exception {
         int i = 0;
         while (listaAlumnos[i] != null && i < listaAlumnos.length) {
             i++;
@@ -17,24 +17,24 @@ public class Agenda implements Tareas {
         if (i == listaAlumnos.length) {
             throw new Exception("Error: La agenda está llena");
         } else {
-            listaAlumnos[i] = persona;
+            listaAlumnos[i] = alumno;
         }
     }
 
     @Override
-    public Persona[] listar() {
+    public Alumno[] listar() {
         return listaAlumnos;
     }
 
     @Override
-    public void editar(Persona persona) throws Exception {
+    public void editar(Alumno alumno) throws Exception {
         int i = 0;
-        while (!listaAlumnos[i].getDni().equals(persona.getDni()) && i < listaAlumnos.length) {
+        while (!listaAlumnos[i].getDni().equals(alumno.getDni()) && i < listaAlumnos.length) {
             i++;
         }
 
         if (i != listaAlumnos.length) {
-            listaAlumnos[i] = persona;
+            listaAlumnos[i] = alumno;
         } else {
             throw new Exception("Error: El alumno no se encuentra en la agenda");
         }
@@ -42,9 +42,9 @@ public class Agenda implements Tareas {
     }
 
     @Override
-    public void borrar(Persona persona) throws Exception {
+    public void borrar(Alumno alumno) throws Exception {
         int i = 0;
-        while (!listaAlumnos[i].getDni().equals(persona.getDni()) && i < listaAlumnos.length) {
+        while (!listaAlumnos[i].getDni().equals(alumno.getDni()) && i < listaAlumnos.length) {
             i++;
         }
 
