@@ -91,18 +91,19 @@ public class MainCrudAlumnos {
         alumno.setUnidad(sc.nextLine());
 
         // Guardamos la clase alumno en nuestra agenda
-        agenda.añadir(alumno);
+        agenda.editar(alumno);
 
         System.out.println();
-        System.out.println("Alumno con DNI " + alumno.getDni() + " insertado correctamente");
+        System.out.println("Alumno con DNI " + alumno.getDni() + " editado correctamente");
         System.out.println();
 
     }
 
     private static void listarAlumnos(Agenda agenda) {
-        int i = 0;
+        int i = 1;
         for (Alumno alumno : agenda.listar()) {
             if (alumno != null) System.out.println(i + ". " + alumno);
+            i++; // Para numerar la lista
         }
 
         System.out.println();
