@@ -1,6 +1,6 @@
 package examen20250106.clases;
 
-public abstract class Mascota {
+public abstract class Mascota implements Comparable<Mascota> {
     // Atributos de clase
     public static int totalMascotas = 0;
 
@@ -77,4 +77,10 @@ public abstract class Mascota {
     public String toString() {
         return "[" + chip + "]: " + nombre + ", " + edad + " años";
     }
+
+    @Override
+    public int compareTo(Mascota o) {
+        return this.nombre.compareTo(o.getNombre());
+    }
+
 }
