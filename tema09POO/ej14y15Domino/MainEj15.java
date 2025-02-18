@@ -22,18 +22,28 @@ public class MainEj15 {
         }
     }
 
+    /**
+     * Método privado para validación de fichas. La ficha1 nunca se toca (ya debería estar conectada a una anterior)
+     * y la ficha dos se intentará voltear para que encaje del lado correcto, si no es así, se descartará (devolverá
+     * falso).
+     *
+     * @param ficha1
+     * @param ficha2
+     * @return true si la ficha 2 encaja con la ficha 1, ya sea directamente o volteando sólo la ficha 2.
+     * @throws Exception en caso de error.
+     */
     private static boolean validaFichas(FichaDomino ficha1, FichaDomino ficha2) throws Exception {
         // Valor de retorno
         boolean validas = false;
 
-        if (ficha1.encaja(ficha2))  {
+        if (ficha1.encaja(ficha2))  {                               // Comprueba si encajan tal como se define en la clase FichaDomino
             if (ficha1.getLado2() == ficha2.getLado2()) {
-                ficha2.voltea();
+                ficha2.voltea();                                    // Si el lado 2 de la ficha 1 encaja con el lado 2 de la ficha 2, se voltea la ficha 2
                 validas = true;
             } else if (ficha1.getLado2() == ficha2.getLado1()) {
-                validas = true;
+                validas = true;                                     // Si el lado 2 de la ficha 1 encaja con el lado 1 de la ficha 2, no hay que hacer nada.
             }
-        }
+        }   // Falso en cualquier otro caso.
 
         return validas;
     }
