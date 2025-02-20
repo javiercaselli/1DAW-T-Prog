@@ -1,3 +1,8 @@
+## Examen Temas 10 y 11
+* Apuntes
+   * [Enunciado](https://docs.google.com/document/d/1DbfYxpMDRifELtrSTnkTiKhMH14dNB5EzM-DVdlgP0c/edit?usp=sharing&rm=minimal)
+   * [examen.zip](https://drive.google.com/file/d/16GYRTElZPs-Ir8O7ldENH2fAKmEVxkef/view?usp=sharing)
+
 # Módulo de Programacion de 1º DAW tarde - Curso 24/25 - CPIFP Alan Turing
 
 En este repositorio se subirán los ejercicios y proyectos resueltos en clase con la guía del profesor, así como, cuando proceda, otra información de interes.
